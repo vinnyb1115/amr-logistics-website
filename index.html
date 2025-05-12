@@ -294,26 +294,37 @@ nav button:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto; /* Centers horizontally */
   padding: 20px;
 }
 
 .about-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 20px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .about-image img {
-  width: 100%;
-  max-width: 500px;
+  max-width: 100%;
+  width: 500px;
   border-radius: 10px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   object-fit: cover;
+}
+
+
+    @media (max-width: 768px) {
+  .about-content {
+    padding: 10px;
+  }
+
+  .about-image img {
+    width: 90%;
+  }
 }
 
 /* ==================================

@@ -642,21 +642,29 @@ body {
   /**
    * Show the selected page and hide the others
    */
-  function showPage(pageId) {
-    // Hide all pages
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => {
-      page.style.display = 'none';
-    });
+function showPage(pageId) {
+  // Hide all pages
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => {
+    page.style.display = 'none';
+  });
 
-    // Display the target page
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-      targetPage.style.display = 'block';
-      window.scrollTo(0, 0); // Scroll to the top when switching pages
-    }
+  // Display the target page
+  const targetPage = document.getElementById(pageId);
+  if (targetPage) {
+    targetPage.style.display = 'block';
+    window.scrollTo(0, 0); // Scroll to the top when switching pages
   }
 
+  // Handle URL Hash Update
+  window.history.pushState({}, "", `#${pageId}`);
+}
+
+// Handle browser back button
+window.addEventListener('popstate', (event) => {
+  const hash = window.location.hash.replace('#', '');
+  showPage(hash || 'home');
+});
   /**
    * Scroll detection for fade-in elements
    */

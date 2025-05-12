@@ -341,7 +341,7 @@ nav button:hover {
 ================================== */
 .about-text-overlay {
   position: absolute;
-  bottom: 20px;
+  top: 15%;
   left: 20px;
   right: 20px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -353,10 +353,20 @@ nav button:hover {
   line-height: 1.5;
   font-size: 1.1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  max-height: 60%;  /* Ensures it never overflows */
-  overflow-y: auto; /* Scrollable if content overflows */
-  scrollbar-width: thin; /* Thinner scrollbar */
+  max-height: 60%;
+  overflow-y: auto;
+  scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+
+  /* Animation properties */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s;
+}
+
+.about-text-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Optional: Scrollbar Styling for Webkit */
@@ -760,7 +770,7 @@ body {
   const pages = document.querySelectorAll('.page');
   pages.forEach(page => {
     page.style.display = 'none';
-    page.classList.remove('show'); // Remove 'show' for re-triggering animations
+    page.classList.remove('show');
   });
 
   // Hide all wrappers
@@ -780,8 +790,8 @@ body {
     if (pageId === 'about') {
       const aboutWrapper = document.getElementById('about-wrapper');
       aboutWrapper.style.display = 'flex';
-      
-      // Trigger the fade-in effect
+
+      // Trigger the fade-in effect for the overlay
       setTimeout(() => {
         aboutWrapper.classList.add('show');
         const textOverlay = document.querySelector('.about-text-overlay');
@@ -790,10 +800,8 @@ body {
     } else if (pageId === 'quote') {
       const quoteWrapper = document.getElementById('quote-wrapper');
       quoteWrapper.style.display = 'flex';
-      const quoteContent = document.getElementById('quote');
       setTimeout(() => {
         quoteWrapper.classList.add('show');
-        quoteContent.classList.add('show');
       }, 50);
     }
     targetPage.style.display = 'block';

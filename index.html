@@ -295,13 +295,14 @@ nav button:hover {
   justify-content: center;
   text-align: center;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto; /* Centers horizontally */
+  max-width: 600px; /* Restrict the maximum width */
+  margin: 0 auto;
   padding: 20px;
   background-color: #8b0000;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
 .about-image {
@@ -314,19 +315,16 @@ nav button:hover {
 
 .about-image img {
   max-width: 100%;
-  width: 500px;
-  height: auto;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   object-fit: cover;
 }
 
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   .about-content {
     max-width: 90%;
-    padding: 10px;
   }
 
   .about-image img {

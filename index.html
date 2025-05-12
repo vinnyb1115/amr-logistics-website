@@ -221,15 +221,16 @@ nav button:hover {
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+
 /* ==================================
-   Form Container
+   Form Container (Lightened Background & Better Contrast)
 ================================== */
 .form-container {
-  background-color: #4d3d3d;
+  background-color: rgba(255, 255, 255, 0.1); /* Lightened transparent white */
   padding: 30px;
-  margin: 30px auto;
+  margin: 20px auto;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   border: 2px solid white;
   border-radius: 10px;
 }
@@ -239,9 +240,21 @@ nav button:hover {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: none;
+  border: 1px solid white;
+  background-color: white; /* Lighter input fields */
+  color: white;
   font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Focus and Hover Effect */
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #c40000;
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
 }
 
 .form-container button {
@@ -253,10 +266,12 @@ nav button:hover {
   font-size: 18px;
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
 }
 
 .form-container button:hover {
-  background-color: gray;
+  background-color: #a30000;
 }
 
 /* ==================================
@@ -265,45 +280,116 @@ nav button:hover {
 #about-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
+  align-items: center;
+  margin: 10px auto !important;
+  padding: 5px 0 !important;
+  height: auto;
+  min-height: 75vh;
+  transition: margin 0.3s ease, padding 0.3s ease;
+  position: relative;
+  flex-direction: column;
 }
 
 #about {
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   text-align: center;
-  background-color: #8b0000;
-  padding: 20px;
+  background-color: transparent;
+  padding: 0;
   border-radius: 10px;
+  margin: 0 auto !important;
+  overflow: hidden;
+  position: relative;
   border: 2px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 0 !important;
 }
 
-.about-top-text {
-  margin-bottom: 10px;
-  margin-top: 0px;
+/* ==================================
+   About Us Title
+================================== */
+.about-title {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
+/* ==================================
+   Image Background and Overlay
+================================== */
 .about-image {
-  margin-top: 10px;
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
 }
 
 .about-image img {
   width: 100%;
-  max-width: 500px; /* Limit the maximum width */
   height: auto;
-  border-radius: 10px;
-  border: 2px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 0;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ==================================
+   Text Overlay Styling (Fade In + Raised Position)
+================================== */
+.about-text-overlay {
+  position: absolute;
+  bottom: 55%; /* Increased for better height */
+  left: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  /* Animation properties */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s;
+}
+
+.about-text-overlay.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================================
+   Responsive Design
+================================== */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text-overlay {
+    font-size: 1rem;
+    padding: 10px;
+    bottom: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-text-overlay {
+    font-size: 0.9rem;
+    padding: 8px;
+    bottom: 45%;
+  }
 }
 /* ==================================
    Remove Empty Space at the Bottom
@@ -447,10 +533,18 @@ body {
 #quote-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
+  align-items: center;
+  margin: 0 auto !important;
+  height: auto;
+  min-height: 75vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#quote-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #quote {
@@ -462,8 +556,17 @@ body {
   border-radius: 10px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 0 !important;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+#quote.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 /* ==================================
@@ -593,15 +696,19 @@ body {
   </div>
 </div>
 
-<!-- About Us Page (FIXED) -->
-<div id="about" class="page">
-  <div class="about-content">
-    <div class="about-top-text">
-      <h2>About Us</h2>
-      <p>We are a locally owned business located in Central Florida...</p>
-    </div>
+<div id="about-wrapper">
+  <div id="about" class="page">
+    
+    <!-- About Us Header -->
+    <h2 class="about-title">About Us</h2>
+
     <div class="about-image">
       <img src="Images/Lone Truck.jpg" alt="About Us Truck Image">
+      <div class="about-text-overlay">
+        <p>
+          AMR Logistics USA Inc is a dump trucking company that hauls all aggregate material: sand, gravel, dirt, clay, lime rock, etc. We are based out of Winter Garden, Florida. We offer competitive pricing based on location and are able to work on weekends to complete your business needs. We are able to haul up to 18-yard loads / 20.5 tons.
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -642,29 +749,63 @@ body {
   /**
    * Show the selected page and hide the others
    */
-function showPage(pageId) {
+ function showPage(pageId) {
   // Hide all pages
   const pages = document.querySelectorAll('.page');
   pages.forEach(page => {
     page.style.display = 'none';
+    page.classList.remove('show'); // Remove 'show' for re-triggering animations
   });
 
-  // Display the target page
+  // Hide all wrappers
+  const wrappers = ['about-wrapper', 'quote-wrapper'];
+  wrappers.forEach(wrapperId => {
+    const wrapper = document.getElementById(wrapperId);
+    if (wrapper) {
+      wrapper.style.display = 'none';
+      wrapper.classList.remove('show');
+    }
+  });
+
+  // Display the target page with its wrapper
   const targetPage = document.getElementById(pageId);
+
   if (targetPage) {
+    if (pageId === 'about') {
+      const aboutWrapper = document.getElementById('about-wrapper');
+      aboutWrapper.style.display = 'flex';
+      
+      // Trigger the fade-in effect
+      setTimeout(() => {
+        aboutWrapper.classList.add('show');
+        const textOverlay = document.querySelector('.about-text-overlay');
+        textOverlay.classList.add('show');
+      }, 50);
+    } else if (pageId === 'quote') {
+      const quoteWrapper = document.getElementById('quote-wrapper');
+      quoteWrapper.style.display = 'flex';
+      const quoteContent = document.getElementById('quote');
+      setTimeout(() => {
+        quoteWrapper.classList.add('show');
+        quoteContent.classList.add('show');
+      }, 50);
+    }
     targetPage.style.display = 'block';
+    setTimeout(() => {
+      targetPage.classList.add('show');
+    }, 50);
     window.scrollTo(0, 0); // Scroll to the top when switching pages
   }
 
   // Handle URL Hash Update
   window.history.pushState({}, "", `#${pageId}`);
 }
+  // Handle browser back button
+  window.addEventListener('popstate', (event) => {
+    const hash = window.location.hash.replace('#', '');
+    showPage(hash || 'home');
+  });
 
-// Handle browser back button
-window.addEventListener('popstate', (event) => {
-  const hash = window.location.hash.replace('#', '');
-  showPage(hash || 'home');
-});
   /**
    * Scroll detection for fade-in elements
    */
@@ -686,7 +827,7 @@ window.addEventListener('popstate', (event) => {
 
   // Fix margin and height on load
   window.addEventListener('load', () => {
-    const wrappers = ['quote-wrapper'];
+    const wrappers = ['quote-wrapper', 'about-wrapper'];
     wrappers.forEach(wrapperId => {
       const wrapper = document.getElementById(wrapperId);
       if (wrapper) {
@@ -705,4 +846,3 @@ window.addEventListener('popstate', (event) => {
 
 </body>
 </html>
-

@@ -306,6 +306,26 @@ nav button:hover {
   object-fit: cover;
 }
 
+    .about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  margin-top: 20px;
+}
 
 /* ==================================
    Remove Empty Space at the Bottom
@@ -597,12 +617,14 @@ body {
 
 <!-- About Us Page (FIXED) -->
 <div id="about" class="page">
-  <div class="about-top-text">
-    <h2>About Us</h2>
-    <p>We are a locally owned business located in Central Florida...</p>
-  </div>
-  <div class="about-image fade-in">
-    <img src="Images/Lone Truck.jpg" alt="About Us Truck Image">
+  <div class="about-content">
+    <div class="about-top-text">
+      <h2>About Us</h2>
+      <p>We are a locally owned business located in Central Florida...</p>
+    </div>
+    <div class="about-image fade-in">
+      <img src="Images/Lone Truck.jpg" alt="About Us Truck Image">
+    </div>
   </div>
 </div>
 

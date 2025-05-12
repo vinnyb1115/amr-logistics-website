@@ -265,14 +265,13 @@ nav button:hover {
 #about-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
 }
 
 #about {
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   text-align: center;
   background-color: #8b0000;
@@ -280,7 +279,7 @@ nav button:hover {
   border-radius: 10px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 0 !important;
+  margin: 20px auto; /* Ensures it's centered */
 }
 
 .about-top-text {
@@ -309,16 +308,15 @@ nav button:hover {
 }
 
 .about-image {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin-top: 20px;
 }
 
 .about-image img {
   max-width: 100%;
-  width: 600px; /* Added specific width to constrain it */
+  width: 600px; /* Restrict to 600px max width */
   border-radius: 15px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);

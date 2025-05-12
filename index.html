@@ -265,13 +265,14 @@ nav button:hover {
 #about-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  height: 100%;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
 }
 
 #about {
-  max-width: 800px;
+  max-width: 600px;
   width: 100%;
   text-align: center;
   background-color: #8b0000;
@@ -279,7 +280,7 @@ nav button:hover {
   border-radius: 10px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 20px auto; /* Ensures it's centered */
+  margin: 0 !important;
 }
 
 .about-top-text {
@@ -287,52 +288,23 @@ nav button:hover {
   margin-top: 0px;
 }
 
-/* ==================================
-   About Us Page Styling
-================================== */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  max-width: 800px; /* Restrict the maximum width */
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #8b0000;
-  border-radius: 15px;
-  border: 2px solid white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
-
 .about-image {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 }
 
 .about-image img {
-  max-width: 100%;
-  width: 600px; /* Restrict to 600px max width */
-  border-radius: 15px;
+  width: 100%;
+  max-width: 500px; /* Limit the maximum width */
+  height: auto;
+  border-radius: 10px;
   border: 2px solid white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
   object-fit: cover;
 }
-
-@media (max-width: 768px) {
-  .about-content {
-    max-width: 90%;
-  }
-
-  .about-image img {
-    width: 100%;
-  }
-}
-
 /* ==================================
    Remove Empty Space at the Bottom
 ================================== */

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMR Logistics USA INC</title>
+  <style>
+
+  /* ==================================
+   General Layout & Body Styles
+================================== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #8b0000, #c40000);
+  color: white;
+}
+
+header {
+  background-color: #c40000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  gap: 20px;
+  overflow: hidden;
+  max-width: 100%;
+  flex-wrap: nowrap;
+}
+
+header img {
+  height: auto;
+  width: clamp(150px, 20vw, 250px);
+  object-fit: contain;
+}
+
+.page {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+/* ==================================
+   Navigation Bar
+================================== */
+nav {
+  background-color: #333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+nav button:hover {
+  background-color: gray;
+}
+
+/* ==================================
+   Typing Animation
+================================== */
+@keyframes blink-caret {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+.typing-container {
+  overflow: hidden;
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.typing {
+  border-right: 3px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: blink-caret 0.75s step-end infinite;
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ==================================
+   Hero Section
+================================== */
+.hero {
+  background-image: url('Images/Duo Truck.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ==================================
+   Section Styling
+================================== */
+.section {
+  padding: 30px;
+  background-color: #c40000;
+  text-align: center;
+}
+
+.white-box {
+  border: 2px solid white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: transparent;
+}
+
+.section img {
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* ==================================
+   Equipment and Materials Layout
+================================== */
+.equipment-materials-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Image Section */
+.image-section {
+  width: 45%;
+}
+
+.equipment-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Outlined Box for Equipment */
+.outlined-box {
+  max-width: 45%;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(255, 69, 58, 0.3);
+  text-align: center;
+}
+
+/* ==================================
+   Materials Layout
+================================== */
+.materials-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.materials-text {
+  width: 45%;
+  max-width: 400px;
+  color: white;
+  text-align: left;
+}
+
+.materials-images {
+  display: flex;
+  gap: 20px;
+  max-width: 600px;
+  justify-content: flex-start;
+}
+
+.materials-images img {
+  width: 48%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* ==================================
+   Outlined Box Styling
+================================== */
+.outlined-box {
+  width: 45%;
+  max-width: 400px;
+  background-color: rgba(255, 69, 58, 0.3);
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* ==================================
+   Form Container
+================================== */
+.form-container {
+  background-color: #4d3d3d;
+  padding: 30px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 400px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+}
+
+.form-container button {
+  background-color: #c40000;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-container button:hover {
+  background-color: gray;
+}
+
+/* ==================================
+   About Us Page Styling
+================================== */
+#about-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+#about {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background-color: #8b0000;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 !important;
+}
+
+.about-top-text {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.about-image {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px; /* Limit the maximum width */
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+  object-fit: cover;
+}
+
+
+/* ==================================
+   Remove Empty Space at the Bottom
+================================== */
+.page {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+  height: auto !important;
+}
+
+#about-wrapper:after {
+  content: "";
+  display: block;
+  height: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+body {
+  overflow-y: scroll;
+  margin: 0;
+  height: auto;
+}
+
+/* ==================================
+   Responsive Design
+================================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+  }
+  header img {
+    width: clamp(80px, 20vw, 150px);
+  }
+  .typing-container {
+    overflow: hidden;
+    min-width: 0;
+  }
+  .hero {
+    font-size: 6vw;
+  }
+  nav button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  /* Equipment and Image Stack */
+  .equipment-materials-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .outlined-box {
+    width: 100%;
+    margin-bottom: 10px;
+    order: -1; /* Ensure it goes above the image */
+  }
+
+  .image-section {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  /* Materials Layout Stack */
+  .materials-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .materials-text {
+    width: 100%;
+    margin-bottom: 10px;
+    order: -1; /* Ensure it goes above the images */
+  }
+
+  .materials-images {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .materials-images img {
+    width: 45%;
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    font-size: 7vw;
+  }
+  .review-box {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+  .outlined-box {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  .equipment-image,
+  .materials-images img {
+    width: 100%;
+  }
+}
+/* ==================================
+   Animations
+================================== */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.outlined-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+/* ==================================
+   Fade-In Animation for Images
+================================== */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+
+
+/* ==================================
+   Quote Page Styling
+================================== */
+#quote-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+#quote {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background-color: #8b0000;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 !important;
+}
+
+
+/* ==================================
+   Footer Styling & Sticky Position
+================================== */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================
+   Add Padding to Content
+================================== */
+body {
+  margin: 0;
+  padding-bottom: 80px; /* Adjust according to footer height */
+  overflow-x: hidden;
+}
+
+
+/* ==================================
+   Page Section Wrappers
+================================== */
+#about-wrapper,
+#quote-wrapper {
+  margin-top: 20px !important; /* Adds consistent spacing from navbar */
+  padding-top: 10px !important; /* Consistent internal spacing */
+}
+
+/* Force override for About Us */
+#about-wrapper {
+  margin-top: 15px !important; /* Matches the height of Quote */
+  padding-top: 10px !important; /* Matches the height of Quote */
+}
+
+/* Optional: Smooth transition */
+#about-wrapper,
+#quote-wrapper {
+  transition: margin 0.3s ease, padding 0.3s ease;
+}
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="typing-container">
+    <div class="typing"></div> <!-- This is where the text will type out -->
+  </div>
+  <img src="Images/Logo.JPG" alt="Company Logo">
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('quote')">Request a Quote</button>
+  <button onclick="showPage('about')">About Us</button>
+</nav>
+
+<!-- Main Home Page Content -->
+<div id="home" class="page">
+  <div class="hero fade-in">
+    Specializing in hauling and excavation,<br> AMR Logistics is sure to fit your needs
+  </div>
+
+  <div class="section fade-in">
+    <div class="white-box">
+      <p>For all your landscaping and construction needs...</p>
+    </div>
+  </div>
+
+  <!-- Equipment Layout -->
+  <div class="equipment-materials-layout">
+    <div class="image-section fade-in">
+      <img src="Images/Dump Truck.jpg" alt="Dump Truck" class="equipment-image">
+    </div>
+    <div class="outlined-box fade-in">
+      <h2 class="fade-in">Available Equipment:</h2>
+      <p>Dump trucks<br>Excavators<br>Skid Steer<br>Etc.</p>
+    </div>
+  </div>
+
+  <!-- Materials Layout -->
+  <div class="equipment-materials-layout">
+    <div class="outlined-box fade-in">
+      <h2 class="fade-in">Materials We Haul:</h2>
+      <p>Can haul various materials and aggregates</p>
+    </div>
+    <div class="materials-images fade-in">
+      <img src="Images/Yellow dirt.jpg" alt="Yellow Dirt">
+      <img src="Images/Dark dirt.jpg" alt="Dark Dirt">
+    </div>
+  </div>
+</div>
+
+<!-- Request a Quote Page -->
+<div id="quote-wrapper">
+  <div id="quote" class="page">
+    <h2>Requesting a quote?</h2>
+    <p>Quotes are based on location and volume.<br> Please include jobsite and approximate amount.<br> Call 111-111-1111 for any questions.</p>
+
+    <div class="form-container">
+      <form action="send_email.php" method="POST">
+        <input type="text" name="name" placeholder="Name *" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="tel" name="telephone" placeholder="Telephone *" required>
+        <textarea name="message" rows="4" placeholder="Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- About Us Page -->
+<div id="about-wrapper">
+  <div id="about" class="page">
+    <div class="about-top-text">
+      <h2>About Us</h2>
+      <p>We are a locally owned business located in Central Florida...</p>
+    </div>
+    <div class="about-image fade-in">
+      <img src="Images/Lone Truck.jpg" alt="About Us Truck Image">
+    </div>
+  </div>
+</div>
+
+<footer style="background:#222; color:#fff; text-align:center; padding:20px;">
+  © 2025 AMR Logistics USA INC. All rights reserved.
+</footer>
+
+
+
+
+
+
+
+<script>
+  window.onload = function() {
+    // Initialize the home page on load
+    showPage('home');
+
+    // Typing animation for header text
+    const text = "AMR Logistics USA INC";
+    const typingElement = document.querySelector(".typing");
+    typingElement.textContent = "";
+
+    let index = 0;
+    function typeLetter() {
+      if (index < text.length) {
+        typingElement.textContent += text[index];
+        index++;
+        setTimeout(typeLetter, 150);
+      } else {
+        typingElement.style.borderRight = "none";
+      }
+    }
+    typeLetter();
+  };
+
+  /**
+   * Show the selected page and hide the others
+   */
+  function showPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      page.style.display = 'none';
+    });
+
+    // Display the target page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.style.display = 'block';
+      window.scrollTo(0, 0); // Scroll to the top when switching pages
+    }
+  }
+
+  /**
+   * Scroll detection for fade-in elements
+   */
+  function handleScroll() {
+    const boxes = document.querySelectorAll('.fade-in, .fade-in-up');
+    boxes.forEach(box => {
+      const rect = box.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom >= 0) {
+        box.classList.add('show');
+      } else {
+        box.classList.remove('show');
+      }
+    });
+  }
+
+  // Event listeners for scroll and load
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('load', handleScroll);
+
+  // Fix margin and height on load
+  window.addEventListener('load', () => {
+    const wrappers = ['about-wrapper', 'quote-wrapper'];
+    wrappers.forEach(wrapperId => {
+      const wrapper = document.getElementById(wrapperId);
+      if (wrapper) {
+        wrapper.style.marginBottom = '0';
+        wrapper.style.paddingBottom = '0';
+        wrapper.style.height = 'auto';
+      }
+    });
+
+    const body = document.querySelector('body');
+    body.style.height = 'auto';
+    body.style.overflowY = 'scroll';
+  });
+</script>
+
+
+</body>
+</html>
+
